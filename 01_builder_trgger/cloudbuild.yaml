@@ -1,4 +1,11 @@
 steps:
-    - name: gcr.io/cloud-builders/git
-      #args: ['fetch', '--unshallow']
-      args: ['--version']
+  - name: gcr.io/cloud-builders/git
+    #args: ['fetch', '--unshallow']
+    args: ['--version']
+  - name: 'ubuntu'
+    args: ['echo', 'hello ${_SUB_VALUE} $PROJECT_ID']
+substitutions:
+    _SUB_VALUE: world
+options:
+    substitution_option: 'ALLOW_LOOSE'
+    
