@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-spring-service
+  namespace: default
+  labels:
+    app: app-spring-pod
+  annotations:
+    beta.cloud.google.com/backend-config: '{"ports": {"8080":"app-spring-ingress-backendconfig"}}'
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: app-spring-pod
