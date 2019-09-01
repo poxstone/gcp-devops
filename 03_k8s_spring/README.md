@@ -2,8 +2,8 @@
 
 ## Vars
 ```bash
-declare PROJECT_ID='';
-declare APP_VER='1.0.0a';
+export PROJECT_ID='';
+export APP_VER='1a';
 ```
 
 ## java spring build and run
@@ -64,4 +64,10 @@ gcloud builds submit --config cloudbuild.yaml --project "${PROJECT_ID}";
 
 ```bash
 git push origin master -f;
+```
+
+## cloud build notify (appengine)
+```bash
+gcloud app deploy app.yaml --version "${APP_VER}" --project "${PROJECT_ID}" -q;
+
 ```
