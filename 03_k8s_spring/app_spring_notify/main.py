@@ -4,6 +4,12 @@ import logging
 
 from flask import Flask, request
 
+# email
+# from __future__ import print_function
+import pickle
+import os.path
+from googleapiclient.discovery import build
+
 
 logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
@@ -31,6 +37,17 @@ def receive_messages_handler():
     elif status == 'FAILURE':
         # TODO; send message
         logging.info('deployment is FAILURE')
+        
+        creds = None
+        with open('token.pickle', 'rb') as token:
+            creds = pickle.load(token)
+        
+        gmail = build('gmail', 'v1', credentials=creds)
+        MAIL_ERROR = 'RGV...'
+        BODY = {"raw": MAIL_ERROR}
+        gmail.users().messages().send(userId='me', body=BODY).execute()
+
+        logging.info('Send email')
 
     elif status == 'WORKING':
         logging.info('deployment is WORKING')

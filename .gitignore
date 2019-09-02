@@ -1,1 +1,6 @@
 *.sw[wmnop]
+token.pickle
+credentials.json
+**/token.pickle
+**/credentials.json
+

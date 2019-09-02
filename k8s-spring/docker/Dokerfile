@@ -1,9 +1,0 @@
-FROM openjdk:8-jre-alpine
-
-ENV APP_DIR="app"
-
-WORKDIR /${APP_DIR}
-COPY ./app_spring/complete/build/libs/ ./
-
-EXPOSE 8080
-CMD ["java", "-jar", "./app_spring-0.1.0.jar"]
