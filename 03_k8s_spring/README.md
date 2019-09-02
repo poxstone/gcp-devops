@@ -63,11 +63,10 @@ gcloud builds submit --config cloudbuild.yaml --project "${PROJECT_ID}";
 - Repository: Google
 
 ```bash
-git push origin master -f;
+git add ./ --all;git commit --amend -m"update";git push origin master -f;
 ```
 
 ## cloud build notify (appengine)
 ```bash
-gcloud app deploy app.yaml --version "${APP_VER}" --project "${PROJECT_ID}" -q;
-
+gcloud app deploy "./app_spring_notify/app.yaml" --version "${APP_VER}" --project "${PROJECT_ID}" -q;
 ```

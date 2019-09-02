@@ -17,3 +17,24 @@
 __pycache__/
 # Ignored by the build system
 /setup.cfg
+.git
+.gitignore
+.vscode/
+env_virtual/*
+virtual_env/*
+dialog_files/*
+lib/
+env_virtual/
+# Python pycache:
+__pycache__/
+# Ignored by the build system
+/setup.cfg
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*\.pug
+- ^(.*/)?.*\.styl
+- ^(.*/)?.*\.sw[mnop]
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?\..*
+- ^(.*/)?\.bak
